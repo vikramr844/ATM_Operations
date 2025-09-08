@@ -4,7 +4,6 @@ public class ATM_AdvancedRegistration {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Account details
         String name = "";
         int age = 0;
         String accountNumber = "";
@@ -28,13 +27,13 @@ public class ATM_AdvancedRegistration {
             sc.nextLine(); // consume newline
 
             switch (choice) {
-                case 1: // Account Registration
+                case 1: 
                     System.out.print("Enter your Name: ");
                     name = sc.nextLine();
 
                     System.out.print("Enter your Age: ");
                     age = sc.nextInt();
-                    sc.nextLine(); // consume newline
+                    sc.nextLine();
 
                     System.out.print("Enter your Account Number: ");
                     accountNumber = sc.nextLine();
@@ -46,89 +45,89 @@ public class ATM_AdvancedRegistration {
                     balance = sc.nextDouble();
 
                     if (balance < 500) {
-                        System.out.println("❌ Minimum balance should be ₹500. Registration failed.");
+                        System.out.println(" Minimum balance should be ₹500. Registration failed.");
                         isRegistered = false;
                     } else {
-                        System.out.println("✅ Account Created Successfully!");
+                        System.out.println(" Account Created Successfully!");
                         isRegistered = true;
                     }
                     break;
 
-                case 2: // Profile View
+                case 2: 
                     if (isRegistered) {
                         System.out.println("\n===== Profile =====");
-                        System.out.println("👤 Name: " + name);
-                        System.out.println("🎂 Age: " + age);
-                        System.out.println("🏦 Account Number: " + accountNumber);
-                        System.out.println("💰 Balance: ₹" + balance);
+                        System.out.println(" Name: " + name);
+                        System.out.println(" Age: " + age);
+                        System.out.println(" Account Number: " + accountNumber);
+                        System.out.println(" Balance: ₹" + balance);
                     } else {
-                        System.out.println("❌ No account found. Please register first (Case 1).");
+                        System.out.println(" No account found. Please register first (Case 1).");
                     }
                     break;
 
-                case 3: // Check Balance
+                case 3: 
                     if (isRegistered) {
-                        System.out.println("✅ Current Balance: ₹" + balance);
+                        System.out.println(" Current Balance: ₹" + balance);
                     } else {
-                        System.out.println("❌ No account found. Please register first (Case 1).");
+                        System.out.println(" No account found. Please register first (Case 1).");
                     }
                     break;
 
-                case 4: // Deposit Money
+                case 4: 
                     if (isRegistered) {
                         System.out.print("Enter deposit amount: ₹");
                         double deposit = sc.nextDouble();
                         if (deposit > 0) {
                             balance += deposit;
-                            System.out.println("✅ Deposited Successfully! Current Balance: ₹" + balance);
+                            System.out.println(" Deposited Successfully! Current Balance: ₹" + balance);
                         } else {
-                            System.out.println("❌ Invalid deposit amount!");
+                            System.out.println(" Invalid deposit amount!");
                         }
                     } else {
-                        System.out.println("❌ No account found. Please register first (Case 1).");
+                        System.out.println(" No account found. Please register first (Case 1).");
                     }
                     break;
 
-                case 5: // Withdraw Money
+                case 5:
                     if (isRegistered) {
                         System.out.print("Enter withdrawal amount: ₹");
                         double withdraw = sc.nextDouble();
                         if (withdraw > 0 && withdraw <= balance) {
                             balance -= withdraw;
-                            System.out.println("✅ Withdrawn Successfully! Current Balance: ₹" + balance);
+                            System.out.println(" Withdrawn Successfully! Current Balance: ₹" + balance);
                         } else if (withdraw > balance) {
-                            System.out.println("❌ Insufficient Balance!");
+                            System.out.println(" Insufficient Balance!");
                         } else {
-                            System.out.println("❌ Invalid withdrawal amount!");
+                            System.out.println(" Invalid withdrawal amount!");
                         }
                     } else {
-                        System.out.println("❌ No account found. Please register first (Case 1).");
+                        System.out.println(" No account found. Please register first (Case 1).");
                     }
                     break;
 
-                case 6: // Change PIN
+                case 6: 
                     if (isRegistered) {
                         System.out.print("Enter current PIN: ");
                         int oldPin = sc.nextInt();
                         if (oldPin == pin) {
                             System.out.print("Enter new PIN: ");
                             pin = sc.nextInt();
-                            System.out.println("✅ PIN Changed Successfully!");
+                            System.out.println(" PIN Changed Successfully!");
                         } else {
-                            System.out.println("❌ Incorrect PIN!");
+                            System.out.println(" Incorrect PIN!");
                         }
                     } else {
-                        System.out.println("❌ No account found. Please register first (Case 1).");
+                        System.out.println(" No account found. Please register first (Case 1).");
                     }
                     break;
 
-                case 8: // Exit
-                    System.out.println("👋 Thank you! Goodbye!");
+                case 8:
+                    System.out.println(" Thank you! Goodbye!");
 
                     break;
 
                 default:
-                    System.out.println("❌ Invalid Choice! Please try again.");
+                    System.out.println(" Invalid Choice! Please try again.");
             }
 
         } while (choice != 8);
